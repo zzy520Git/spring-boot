@@ -40,6 +40,23 @@
         <directory>src/main/resources</directory>
         <!-- filtering属性用来表示资源文件中的占位符是否需要被替换，true为需要替换 -->
         <filtering>true</filtering>
+        <includes>
+          <include>**/*.xml</include>
+          <include>**/*.yaml</include>
+          <include>application.properties</include>
+          <include>application-${environment}.properties</include>
+        </includes>
+      </resource>
+
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>false</filtering>
+        <excludes>
+          <exclude>application-dev.properties</exclude>
+          <exclude>application-test.properties</exclude>
+          <exclude>application-prepublish.properties</exclude>
+          <exclude>application-production.properties</exclude>
+        </excludes>
       </resource>
     </resources>
     <plugins>
