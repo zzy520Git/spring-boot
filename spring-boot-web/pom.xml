@@ -44,7 +44,7 @@
           <include>**/*.xml</include>
           <include>**/*.yaml</include>
           <include>application.properties</include>
-          <include>application-${environment}.properties</include>
+          <include>application-${profile.environment}.properties</include>
         </includes>
       </resource>
 

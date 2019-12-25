@@ -222,28 +222,28 @@
         <activeByDefault>true</activeByDefault>
       </activation>
       <properties>
-        <environment>dev</environment>
+        <profile.environment>dev</profile.environment>
       </properties>
     </profile>
     <!-- 测试环境 -->
     <profile>
       <id>test</id>
       <properties>
-        <environment>test</environment>
+        <profile.environment>test</profile.environment>
       </properties>
     </profile>
     <!-- 预发环境 -->
     <profile>
       <id>prepublish</id>
       <properties>
-        <environment>prepublish</environment>
+        <profile.environment>prepublish</profile.environment>
       </properties>
     </profile>
     <!-- 生产环境 -->
     <profile>
       <id>production</id>
       <properties>
-        <environment>production</environment>
+        <profile.environment>production</profile.environment>
       </properties>
     </profile>
   </profiles>
