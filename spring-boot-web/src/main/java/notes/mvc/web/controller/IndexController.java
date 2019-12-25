@@ -6,6 +6,9 @@ import notes.mvc.common.response.ResponseResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * Description：
  *
@@ -18,8 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class IndexController {
     @RequestMapping("/index")
-    public ResponseResult index() {
-        log.warn("开启springboot之旅");
+    public ResponseResult index(HttpServletRequest request, HttpServletResponse response) {
+        log.warn("开启springboot之旅, login={}", request.getParameter("login"));
         return ResponseResult.successResult(Code.CommonCode.SUCCESS);
     }
 }
