@@ -23,10 +23,12 @@ import javax.servlet.http.HttpServletResponse;
 public class IndexController {
     @Value("${env.profile}")
     private String env;
+    @Value("${app.username}")
+    private String username;
 
     @RequestMapping("/index")
     public ResponseResult index(HttpServletRequest request, HttpServletResponse response) {
-        log.warn("开启springboot之旅, env={},login={}", env, request.getParameter("login"));
+        log.warn("开启springboot之旅, env={}, username={},login={}", env, username, request.getParameter("login"));
         return ResponseResult.successResult(Code.CommonCode.SUCCESS);
     }
 }
