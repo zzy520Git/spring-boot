@@ -21,6 +21,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
 public class SpringBootApp extends SpringBootServletInitializer {
+    /**
+     * 增加对tomcat支持
+     *
+     * @param builder
+     * @return
+     */
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(SpringBootApp.class);
