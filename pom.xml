@@ -161,7 +161,6 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
-        <!--
         <configuration>
           <fork>true</fork>
           <mainClass>notes.mvc.SpringBootApp</mainClass>
@@ -181,7 +180,6 @@
             <version>1.2.8.RELEASE</version>
           </dependency>
         </dependencies>
-        -->
       </plugin>
 
       <plugin>
