@@ -141,12 +141,59 @@
   </dependencies>
 
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+      <!-- 待定研究 -->
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+        </includes>
+        <filtering>false</filtering>
+      </resource>
+    </resources>
+
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <!--
+        <configuration>
+          <fork>true</fork>
+          <mainClass>notes.mvc.SpringBootApp</mainClass>
+          <skip>true</skip>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>repackage</goal>
+            </goals>
+          </execution>
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>springloaded</artifactId>
+            <version>1.2.8.RELEASE</version>
+          </dependency>
+        </dependencies>
+        -->
       </plugin>
 
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.7.0</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
@@ -168,5 +215,39 @@
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <!-- 开发环境 -->
+    <profile>
+      <id>dev</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <environment>dev</environment>
+      </properties>
+    </profile>
+    <!-- 测试环境 -->
+    <profile>
+      <id>test</id>
+      <properties>
+        <environment>test</environment>
+      </properties>
+    </profile>
+    <!-- 预发环境 -->
+    <profile>
+      <id>prepublish</id>
+      <properties>
+        <environment>prepublish</environment>
+      </properties>
+    </profile>
+    <!-- 生产环境 -->
+    <profile>
+      <id>production</id>
+      <properties>
+        <environment>production</environment>
+      </properties>
+    </profile>
+  </profiles>
 
 </project>

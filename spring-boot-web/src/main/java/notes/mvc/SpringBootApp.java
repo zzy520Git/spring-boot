@@ -13,6 +13,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * @ see
  * @since
  */
+//@ImportResource(locations = {"classpath:spring/spring-jsf-bean.xml", "classpath:spring/spring-config.xml"})
+//@MapperScan(basePackages = "notes.mvc.dao")
 @SpringBootApplication
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
