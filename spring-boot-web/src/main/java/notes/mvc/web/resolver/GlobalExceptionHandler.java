@@ -21,6 +21,6 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseResult handleException(Exception ex) {
         log.error("GlobalExceptionHandler.error", ex);
-        return ResponseResult.errorCodeMsg(Code.CommonCode.Failure, "统一异常处理");
+        return ResponseResult.errorCodeMsg(Code.CommonCode.Failure, ex.getMessage());
     }
 }
