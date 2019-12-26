@@ -8,10 +8,7 @@ import notes.mvc.web.interceptor.ContextInterceptor;
 import notes.mvc.web.interceptor.LoginInterceptor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
+import org.springframework.context.annotation.*;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
@@ -42,6 +39,7 @@ public class ApplicationConfiguration extends WebMvcConfigurationSupport {
         return new LoginInterceptor();
     }
 
+    @Conditional(BootCondition.class)
     @Bean
     public ContextInterceptor contextInterceptor() {
         return new ContextInterceptor();
