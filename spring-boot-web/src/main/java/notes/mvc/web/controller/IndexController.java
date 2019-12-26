@@ -1,6 +1,7 @@
 package notes.mvc.web.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import notes.mvc.common.annotation.monitor.XMonitor;
 import notes.mvc.common.response.Code;
 import notes.mvc.common.response.ResponseResult;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,6 +27,7 @@ public class IndexController {
     @Value("${app.username}")
     private String username;
 
+    @XMonitor
     @RequestMapping("/index")
     public ResponseResult index(HttpServletRequest request, HttpServletResponse response) {
         log.warn("开启springboot之旅, env={}, username={},login={}", env, username, request.getParameter("login"));
