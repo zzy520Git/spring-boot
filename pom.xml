@@ -224,6 +224,7 @@
       </activation>
       <properties>
         <profile.environment>dev</profile.environment>
+        <profile.log.level>debug</profile.log.level>
       </properties>
     </profile>
     <!-- 测试环境 -->
@@ -231,6 +232,7 @@
       <id>test</id>
       <properties>
         <profile.environment>test</profile.environment>
+        <profile.log.level>info</profile.log.level>
       </properties>
     </profile>
     <!-- 预发环境 -->
@@ -238,6 +240,7 @@
       <id>prepublish</id>
       <properties>
         <profile.environment>prepublish</profile.environment>
+        <profile.log.level>info</profile.log.level>
       </properties>
     </profile>
     <!-- 生产环境 -->
@@ -245,6 +248,7 @@
       <id>production</id>
       <properties>
         <profile.environment>production</profile.environment>
+        <profile.log.level>warn</profile.log.level>
       </properties>
     </profile>
   </profiles>

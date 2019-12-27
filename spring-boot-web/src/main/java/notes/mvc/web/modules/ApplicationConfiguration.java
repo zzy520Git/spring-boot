@@ -34,6 +34,7 @@ import java.util.List;
 public class ApplicationConfiguration extends WebMvcConfigurationSupport {
     //implements WebMvcConfigurer
 
+    @Profile({"dev", "test", "prepublish", "production"})
     @Bean
     public LoginInterceptor loginInterceptor() {
         return new LoginInterceptor();

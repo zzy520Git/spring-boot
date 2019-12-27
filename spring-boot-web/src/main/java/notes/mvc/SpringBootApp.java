@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class SpringBootApp extends SpringBootServletInitializer {
     /**
-     * 增加对tomcat支持
+     * 增加对tomcat支持，类似web.xml
      *
      * @param builder
      * @return

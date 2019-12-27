@@ -17,7 +17,7 @@
     </encoder>
   </appender>
 
-  <root level="info">
+  <root level="@profile.log.level@">
     <appender-ref ref="stdout" />
     <!-- 视情况可要可不要 -->
     <!--<appender-ref ref="notes" />-->
