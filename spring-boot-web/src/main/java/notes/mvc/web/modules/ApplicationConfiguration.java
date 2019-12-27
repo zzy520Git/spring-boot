@@ -12,6 +12,8 @@ import org.springframework.context.annotation.*;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
@@ -44,6 +46,15 @@ public class ApplicationConfiguration extends WebMvcConfigurationSupport {
     @Bean
     public ContextInterceptor contextInterceptor() {
         return new ContextInterceptor();
+    }
+
+    @Bean
+    public MultipartResolver multipartResolver() {
+        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+        //单位字节，设置-1代表不限制
+        multipartResolver.setMaxUploadSize(10000000);
+        multipartResolver.setDefaultEncoding("utf-8");
+        return multipartResolver;
     }
 
     /**
