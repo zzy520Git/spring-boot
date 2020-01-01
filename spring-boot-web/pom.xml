@@ -42,7 +42,8 @@
         <filtering>true</filtering>
         <includes>
           <include>**/*.xml</include>
-          <include>**/*.yaml</include>
+          <!--<include>**/*.yaml</include>-->
+          <include>**/*.yml</include>
           <include>application.properties</include>
           <include>application-${profile.environment}.properties</include>
         </includes>
