@@ -29,6 +29,8 @@ import java.util.concurrent.TimeUnit;
  * -XX:GCTimeRatio=19 -Xnoclassgc -XX:+DisableExplicitGC -XX:+UseParNewGC -XX:+UseConcMarkSweepGC
  * -XX:+UseCMSCompactAtFullCollection -XX:CMSFullGCsBeforeCompaction=0 -XX:-CMSParallelRemarkEnabled
  *
+ * https://www.oracle.com/technical-resources/articles/java/g1gc.html
+ *
  * @author zzy520git
  * @date 2019/12/30 18:08
  * @ see
@@ -53,7 +55,7 @@ public class TestMain {
     public static void main(String[] args) throws Exception {
         int count = 0;
         while (count++ < 10) {
-            TimeUnit.SECONDS.sleep(10);
+            TimeUnit.SECONDS.sleep(30);
             System.out.println(count);
         }
     }
