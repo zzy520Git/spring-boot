@@ -1,7 +1,5 @@
 package notes.mvc.common;
 
-import java.util.concurrent.TimeUnit;
-
 /**
  * Description：online conf
  *
@@ -53,10 +51,12 @@ public class TestMain {
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-        int count = 0;
-        while (count++ < 10) {
-            TimeUnit.SECONDS.sleep(30);
-            System.out.println(count);
-        }
+        int core = 32;
+        System.out.println(core>>>1);
+//        int count = 0;
+//        while (count++ < 10) {
+//            TimeUnit.SECONDS.sleep(30);
+//            System.out.println(count);
+//        }
     }
 }
