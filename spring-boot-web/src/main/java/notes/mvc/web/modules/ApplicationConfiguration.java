@@ -33,6 +33,8 @@ import java.util.List;
  */
 @PropertySources({@PropertySource(value = "classpath:/important.properties", encoding = "utf-8")})
 @Configuration
+//@ComponentScan
+//@Import() 导入组件，id默认是全限定类名
 public class ApplicationConfiguration extends WebMvcConfigurationSupport {
     //implements WebMvcConfigurer
 
@@ -42,8 +44,15 @@ public class ApplicationConfiguration extends WebMvcConfigurationSupport {
         return new LoginInterceptor();
     }
 
+    /**
+     * @return
+     * @Lazy
+     * @Scope ...
+     */
     @Conditional(BootCondition.class)
     @Bean
+    //@Bean(initMethod = "", destroyMethod = "")
+    //spring容器只管理单例bean，多例的不会执行destroy方法，在容器销毁时
     public ContextInterceptor contextInterceptor() {
         return new ContextInterceptor();
     }
