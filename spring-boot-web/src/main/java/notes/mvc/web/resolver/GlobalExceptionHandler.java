@@ -3,7 +3,6 @@ package notes.mvc.web.resolver;
 import lombok.extern.slf4j.Slf4j;
 import notes.mvc.common.response.Code;
 import notes.mvc.common.response.ResponseResult;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * Controller统一异常处理
  */
 @RestControllerAdvice
-@ControllerAdvice
+//@ControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
 
