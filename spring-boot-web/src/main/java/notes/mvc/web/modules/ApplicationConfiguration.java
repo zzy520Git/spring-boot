@@ -12,6 +12,8 @@ import org.springframework.context.annotation.*;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -33,6 +35,8 @@ import java.util.List;
  */
 @PropertySources({@PropertySource(value = "classpath:/important.properties", encoding = "utf-8")})
 @Configuration
+//@ComponentScan
+//@Import() 导入组件，id默认是全限定类名
 public class ApplicationConfiguration extends WebMvcConfigurationSupport {
     //implements WebMvcConfigurer
 
@@ -42,8 +46,15 @@ public class ApplicationConfiguration extends WebMvcConfigurationSupport {
         return new LoginInterceptor();
     }
 
+    /**
+     * @return
+     * @Lazy
+     * @Scope ...
+     */
     @Conditional(BootCondition.class)
     @Bean
+    //@Bean(initMethod = "", destroyMethod = "")
+    //spring容器只管理单例bean，多例的不会执行destroy方法，在容器销毁时
     public ContextInterceptor contextInterceptor() {
         return new ContextInterceptor();
     }
@@ -111,5 +122,10 @@ public class ApplicationConfiguration extends WebMvcConfigurationSupport {
     @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource dataSource() {
         return DataSourceBuilder.create().type(HikariDataSource.class).build();
+    }
+
+    @Bean
+    public PlatformTransactionManager transactionManager() {
+        return new DataSourceTransactionManager(dataSource());
     }
 }

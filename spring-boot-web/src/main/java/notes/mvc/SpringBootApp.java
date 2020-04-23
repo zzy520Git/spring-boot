@@ -34,5 +34,11 @@ public class SpringBootApp extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBootApp.class, args);
+        /*
+        SpringApplication app = new SpringApplication(SpringBootApp.class);
+        app.setBannerMode(Banner.Mode.OFF);
+        app.run(args);
+        app.addListeners...
+        */
     }
 }
