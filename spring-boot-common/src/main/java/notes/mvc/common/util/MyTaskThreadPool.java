@@ -1,5 +1,6 @@
 package notes.mvc.common.util;
 
+import javax.annotation.PreDestroy;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -46,5 +47,12 @@ public class MyTaskThreadPool extends ThreadPoolExecutor {
     @Override
     protected void terminated() {
         super.terminated();
+    }
+
+    @PreDestroy
+    protected void destroy() {
+        if (!isShutdown()) {
+            shutdown();
+        }
     }
 }
